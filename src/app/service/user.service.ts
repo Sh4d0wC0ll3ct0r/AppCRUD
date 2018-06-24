@@ -18,19 +18,21 @@ export class UserService {
    return this.http.get<User[]>(this.baseUrl + '/clientes');
   }
 
-  getUserById(id: number) {
-    return this.http.get<User>(this.baseUrl + '/' + id);
+  getUserById(id: String) {
+    console.log(this.baseUrl + '/cliente/' + id);
+    return this.http.get<User>(this.baseUrl + '/cliente/' + id);
   }
 
   createUser(user: User) {
-    return this.http.post(this.baseUrl + '/' , user);
+    return this.http.post(this.baseUrl + '/cliente' , user);
   }
 
   updateUser(user: User) {
-    return this.http.put(this.baseUrl + '/' + user._id, user);
+    console.log(user._id);
+    return this.http.put(this.baseUrl + '/cliente/' + user._id, user);
   }
 
-  deleteUser(id: number) {
-    return this.http.delete(this.baseUrl + '/' + id);
+  deleteUser(id: String) {
+    return this.http.delete(this.baseUrl + '/cliente/' + id);
   }
 }

@@ -1,13 +1,13 @@
-<div class="col-md-6">
-  <h2> User Details</h2>
-  <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+<div class="col-md-12">
+  <h2> Detalles de Usuarios</h2>
+  <button class="btn btn-danger" (click)="addUser()"> Añadir Usuario</button>
   <table class="table table-striped">
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Email</th>
+      <th>Nombre</th>
+      <th>email</th>
+      <th>Estado</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -17,8 +17,8 @@
       <td>{{ user.nombre }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.estado }}</td>
-      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>
-        <button class="btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td>
+      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Eliminar </button>
+        <button class="btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;"> Editar</button></td>
     </tr>
     </tbody>
   </table>

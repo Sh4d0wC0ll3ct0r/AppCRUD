@@ -8,7 +8,7 @@ export class User {
 }*/
 
 export class User {
-  _id: number;
+  _id: string;
   nombre: string;
   email: string;
   estado: string;

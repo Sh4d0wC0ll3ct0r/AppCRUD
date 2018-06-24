@@ -14,24 +14,36 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
+  userId: string;
+  id = '';
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    const userId = localStorage.getItem('editUserId');
-    if (!userId) {
+     this.userId  = localStorage.getItem('editUserId');
+   // const iduse =  localStorage.getItem('editUserId');
+
+    if (!this.userId) {
       alert('Invalid action.');
       this.router.navigate(['list-user']);
       return;
     }
     this.editForm = this.formBuilder.group({
-      id: [],
+      _id: [],
       email: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      nombre: ['', Validators.required],
+      estado: ['', Validators.required]
     });
-    this.userService.getUserById(+userId)
+
+    this.userService.getUserById(this.userId)
       .subscribe(data => {
-        this.editForm.setValue(data);
+        console.log(data);
+        this.editForm.setValue({
+          _id: data._id,
+          nombre: data.nombre,
+          email: data.email,
+          estado: data.estado,
+        });
+
       });
   }
 
